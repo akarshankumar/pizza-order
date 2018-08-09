@@ -3,11 +3,13 @@ package com.pizza.order.pizzaorder.service;
 import com.pizza.order.pizzaorder.repository.PizzaOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import java.util.TreeMap;
 
 @Service
+@PropertySource(value={"classpath:application.properties"})
 public class PizzaOrderService {
 
     @Value("${data.source}")

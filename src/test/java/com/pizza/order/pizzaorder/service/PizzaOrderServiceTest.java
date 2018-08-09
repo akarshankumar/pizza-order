@@ -1,11 +1,13 @@
 package com.pizza.order.pizzaorder.service;
 
 import com.pizza.order.pizzaorder.repository.PizzaOrderRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.TreeMap;
 
@@ -22,6 +24,11 @@ public class PizzaOrderServiceTest {
 
     @Mock
     PizzaOrderRepository pizzaOrderRepository;
+
+    @Before
+    public void setUp() {
+        ReflectionTestUtils.setField(pizzaOrderService, "dataSource", "textfile");
+    }
 
     @Test
     public void orderPizza() {
